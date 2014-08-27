@@ -1,0 +1,12 @@
+*
+
+!*\.gitignore
+!LICENSE
+!README
+
+!*/
+
+!*.tex
+!*.py
+!*.png
+!*.pdf
