@@ -1,0 +1,250 @@
+\documentclass{beamer}
+
+\usepackage{hyperref, listings, xcolor}
+
+
+\lstset{ % http://tex.stackexchange.com/questions/34688/lstlisting-how-to-set-code-color-and-frame-color
+ 	language=Python, % choose the language of the code
+    basicstyle=\fontfamily{pcr}\selectfont\footnotesize\color{blue},
+    keywordstyle=\color{black}\bfseries, % style for keywords
+    numbers=none, % where to put the line-numbers
+    numberstyle=\tiny, % the size of the fonts that are used for the line-numbers     
+    backgroundcolor=\color{gray},
+    showspaces=false, % show spaces adding particular underscores
+    showstringspaces=false, % underline spaces within strings
+    showtabs=false, % show tabs within strings adding particular underscores
+    frame=single, % adds a frame around the code
+    tabsize=2, % sets default tabsize to 2 spaces
+    rulesepcolor=\color{gray},
+    rulecolor=\color{black},
+    captionpos=b, % sets the caption-position to bottom
+    breaklines=true, % sets automatic line breaking
+    breakatwhitespace=false
+}
+
+\title{\sc Begining Python\footnote{get the \href{https://github.com/SimpleExpress/PythonNote}{\underline{latest}} copy}}
+\author{Almark}
+\date{\today}
+
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{What is Python}
+	Python is a high-level, interpreted, interactive and object oriengted-scripting language:
+	\begin{itemize}
+		\item Easy-to-learn
+		\item A broad standard library
+		\item Interactive Mode
+		\item Portable
+		\item Extenable
+		\item Database
+		\item GUI Programming
+		\item Scalable
+	\end{itemize}
+	Python has been widely used in building websites, data mining, machine learning, crawler, etc.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Python Structures}
+	\begin{description}
+	\item[statements]
+		\begin{itemize}
+			\item control flow
+			\item object definitions
+			\item indentation matters - instead of \{\}
+		\end{itemize}
+
+	\item[objects]
+		\begin{itemize}
+			\item everything is an object
+			\item automatically reclaimed when no longer needed
+		\end{itemize}
+
+	\item[modules]
+		\begin{itemize}
+			\item Python source files or C extensions
+			\item import, top-level via from, reload
+		\end{itemize}
+	\end{description}
+\end{frame}
+
+\begin{frame}
+	\frametitle{hello world}
+	\lstinputlisting[firstline=1, lastline=2]{basis.py}
+	You can write Python code with any editor and execute with command \textcolor{blue}{python python-code-file.py} or use the Python interpreter in interactive mode\\
+	\XeTeXpicfile "editor.png" scaled 500
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{basic data types}
+	\lstinputlisting[firstline=6, lastline=23]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{list \& tuple}
+	\lstinputlisting[firstline=26, lastline=42]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{dict}
+	dict in Python is actually a hashtable which is widely used during the runtime. e.g. the variables maintainance.
+	\lstinputlisting[firstline=46, lastline=55]{basis.py}
+	Python has other powerful dicts like \textcolor{blue}{OrderedDict}, \textcolor{blue}{defaultdict} provide great features.
+\end{frame}
+
+\begin{frame}
+	\frametitle{set}
+	Python also supports the operations of \textcolor{blue}{set}. Here is an easy example:
+	\lstinputlisting[firstline=59, lastline=66]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Control Flow - if Statement}
+	\lstinputlisting[firstline=70, lastline=77]{basis.py}
+	Unlike C, expressions like a \textless b \textless c have the interpretation that is conventional in mathematics:
+	\lstinputlisting[firstline=79, lastline=79]{basis.py}
+	is equivalent to
+	\lstinputlisting[firstline=80, lastline=80]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Control Flow - loops}
+	\lstinputlisting[firstline=83, lastline=95]{basis.py}
+	The else statement will only be executed when the loop terminates through exhaustion of the list (with for) or when the condition becomes false (with while).
+\end{frame}
+
+\begin{frame}
+	\frametitle{Function}
+	\lstinputlisting[firstline=99, lastline=103]{basis.py}
+	different parameters are allowed in Python:
+	\begin{description}
+		\item[a] The mandatory arguments
+		\item[b] The arguments with default values
+		\item[*args] A tuple of the optional arguments
+		\item[**kwargs] A dict of the optional keyword arguments
+	\end{description}
+	how to call:
+	\lstinputlisting[firstline=104, lastline=104]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Anonymous Function}
+	Python supports anonymous function by using the lambda keyword:
+	\lstinputlisting[firstline=108, lastline=112]{basis.py}
+	Another example:
+	\lstinputlisting[firstline=114, lastline=114]{basis.py}
+	Here the \textcolor{red}{processFunc} is determined by the value of \textcolor{red}{collapse}.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exception Handling}
+	Python uses try-except-finally block for exception handling:
+	\lstinputlisting[firstline=118, lastline=128]{basis.py}
+	You can also process multiple exceptions together:
+	\lstinputlisting[firstline=130, lastline=131]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Object Oriengted Programming}
+	In Python, everything is an object.
+	\lstinputlisting[firstline=135, lastline=142]{basis.py}
+	The example above shows how to define an object, it uses \textcolor{blue}{\_\_init\_\_} method to initialize the object. 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Object Oriengted Programming}
+	Python also supports object inheritance, like Java, we can call super class's \textcolor{blue}{\_\_init\_\_}. Note here the variable with 2 underlines plays a role of private member.
+	\lstinputlisting[firstline=144, lastline=155]{basis.py}
+	Besides, Python supports multiple inheritance, you can define a class like this:
+	\lstinputlisting[firstline=157, lastline=157]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{List Comprehensions}
+	List comprehension is a syntactic construct for creating a list based on existing lists.
+	\lstinputlisting[firstline=161, lastline=162]{basis.py}
+	An example that uses list comprehensions to print a multiplication table
+	\lstinputlisting[firstline=165, lastline=165]{basis.py}
+	\XeTeXpicfile "matrix99.png" scaled 500
+\end{frame}
+
+\begin{frame}
+	\frametitle{Decorator}
+	You may have been familiar with the decorator pattern, Python provides a more simple but powerful decorator in language level.
+	An example of log function
+	\lstinputlisting[firstline=169, lastline=180]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Decorator - An Aadvanced Example}
+	\lstinputlisting[firstline=183, lastline=199]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Generator}
+	Generators functions allow you to declare a function that behaves like an iterator, i.e. it can be used in a for loop.
+	\lstinputlisting[firstline=203, lastline=218]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Concurrent Programming}
+	4 types of concurrent programming in Python:
+	\begin{description}
+		\item[multi-processing] os.fork, multiprocessing
+		\item[multi-threading] threading, Thread
+		\item[asynchronous] select, poll, epoll (depends on OS)
+		\item[coroutine] yield, asyncio (Python 3.4)
+	\end{description}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Co-Operative Routines}
+	Coroutines are program components that generalize subroutines to allow multiple entry points for suspending and resuming execution at certain locations.
+	\lstinputlisting[firstline=222, lastline=238]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Some powerful 3rd party modules}
+	\XeTeXpicfile "examples.png" scaled 500
+\end{frame}
+
+\begin{frame}
+	\frametitle{gevent}
+	gevent is a coroutine-based Python networking library that uses greenlet to provide a high-level synchronous API on top of the libev event loop. Below is a simple example shows the producer-consumer model
+	\lstinputlisting[firstline=242, lastline=258]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{matplotlib}
+	matplotlib is python 2D plotting library with a set of API which is similar to matlab. Below is a demo from official website.
+	\XeTeXpicfile "log_demo2.png" scaled 500
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pony ORM}
+	Pony is a cool and new Python ORM that lets you query a database using Python generators. These generators are then translated into effective SQL.\\
+	Python generator:
+	\lstinputlisting[firstline=262, lastline=262]{basis.py}
+	is translated to following SQL:
+	\lstinputlisting[firstline=264, lastline=269]{basis.py}
+\end{frame}
+
+\begin{frame}
+	\frametitle{References}
+	\begin{itemize}
+		\item Pro Python, a book introduces advanced usage of Python
+		\item TimeComplexity: https://wiki.python.org/moin/TimeComplexity
+		\item Python 2 or Python 3: https://wiki.python.org/moin/Python2orPython3
+		\item Method Resolution Order (MRO): https://www.python.org/download/releases/2.3/mro/
+		\item List Comprehensions: http://legacy.python.org/dev/peps/pep-0202/
+		\item Tasks and coroutines: https://docs.python.org/3/library/asyncio-task.html
+	\end{itemize}
+\end{frame}
+
+\end{document}
